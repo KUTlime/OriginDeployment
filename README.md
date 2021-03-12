@@ -36,7 +36,7 @@
 
 ### Listed problems
 
-1. OriginAPI doesn't respond with a generated URL for CAMIO like it should.  
+1. OriginAPI doesn't respond with a generated URL for DEMEO like it should.  
 (The button Edit API settings in organization administration under God user)
 2. There was no consensus how to properly test if Previewbox or Renderbox is deployed successfully on localhost.  
 It is highly possible that a hardware dongle with a license of the Lyric engine is required to run these modules.
