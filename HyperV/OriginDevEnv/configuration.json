@@ -1,0 +1,29 @@
+{
+    "SupportedPSVersion":"7.0.3",
+    "UrlToIso": "https://tb.rg-adguard.net/dl.php?go=659a4291",
+    "PathToIso": "C:\\Win10_20H2_v2_English_x64.iso",
+    "SwitchName":"OriginVMSwitch",
+    "InterfaceSelectionStrategy": "Last",
+    "RemovalPostfix": "*",
+    "UseIso": true,
+    "VMs":[
+        {
+            "VMName": "Win10VM1",
+            "Generation": 2,
+            "MemoryStartupBytes": "4GB",
+            "Path": "C:\\Hyper-V\\Origin",
+            "NewVHDPath": "C:\\Hyper-V\\Origin\\Win10VM1\\storage1.vhdx",
+            "NewVHDSizeBytes": "63GB",
+            "BootDevice": "VHD"
+        },
+        {
+            "VMName": "Win10VM2",
+            "Generation": 2,
+            "MemoryStartupBytes": "4GB",
+            "Path": "C:\\Hyper-V\\Origin",
+            "NewVHDPath": "C:\\Hyper-V\\Origin\\Win10VM2\\storage2.vhdx",
+            "NewVHDSizeBytes": "63GB",
+            "BootDevice": "VHD"
+        }
+    ]
+}
