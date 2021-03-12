@@ -1,0 +1,568 @@
+{
+    "SupportedPSVersion": "7.1.0",
+    "Localhost": true,
+    "SourceCodeLocalPath": "%USERPROFILE%\\source\\CompanyName\\Origin\\",
+    "AzureDevOpsUser": {
+        "Name": "",
+        "Password": ""
+    },
+    "VPNUserName": "Radek.Zahradnik",
+    "OriginUser": {
+        "Name": "UserName",
+        "FullName": "Fullname of the user",
+        "Password": "PasswordInsPlainText",
+        "Group": "Administrators"
+    },
+    "NetworkHost": [
+        {
+            "IP": "10.10.10.10"
+        },
+        {
+            "IP": "10.10.10.10"
+        }
+    ],
+    "AppPool": {
+        "Name": "Origin"
+    },
+    "Website": [
+        {
+            "Name": "OriginWeb",
+            "Port": 1810,
+            "ApplicationPool": "Origin",
+            "BindingInformation": "*:1810:",
+            "Id": 2,
+            "PhysicalPath": "%SystemDrive%\\inetpub\\wwwroot",
+            "SelfSignedCertificatePassword": "WithGreatPowerComesGreatResponsibility"
+        },
+        {
+            "Name": "OriginApp",
+            "Port": 1985,
+            "ApplicationPool": "Origin",
+            "BindingInformation": "*:1985:",
+            "Id": 3,
+            "PhysicalPath": "%SystemDrive%\\inetpub\\wwwroot"
+        }
+    ],
+    "FrontendWebsiteId": 2,
+    "BackendWebsiteId": 3,
+    "FrontendEndpointToSubstitude": "http://frontend.brandname.com",
+    "BackendEndpointToSubstitude": "http://backend.brandname.com",
+    "WebApp": {
+        "Portal": {
+            "FilePathToConfig": "%USERPROFILE%\\source\\CompanyName\\Origin\\portal\\Company.Portal.Web\\Root.Web.Release-Dev.config",
+            "TargetAbsolutePathToConfig": "%SystemDrive%\\inetpub\\wwwroot\\Web.config",
+            "ProjectsToPublish": [
+                {
+                    "RelativeProjectPath": "portal\\Company.Portal.Web\\Company.Portal.Web.csproj",
+                    "RelativePublishProfilePath": "portal\\Company.Portal.Web\\Properties\\PublishProfiles\\FolderProfile.pubxml"
+                },
+                {
+                    "RelativeProjectPath": "portal\\Company.Portal.API\\Company.Portal.API.csproj",
+                    "RelativePublishProfilePath": "portal\\Company.Portal.API\\Properties\\PublishProfiles\\FolderProfile.pubxml"
+                },
+                {
+                    "RelativeProjectPath": "portal\\Company.Portal.Application.WebService\\Company.Portal.Application.WebService.csproj",
+                    "RelativePublishProfilePath": "portal\\Company.Portal.Application.WebService\\Properties\\PublishProfiles\\FolderProfile.pubxml"
+                }
+            ],
+            "SymbolicLinkToCreate": [],
+            "AppToCreateOnFrontendWebsite": [
+                {
+                    "Name": "Portal",
+                    "PhysicalPath": "%SystemDrive%\\inetpub\\wwwroot\\Portal"
+                },
+                {
+                    "Name": "PortalApi",
+                    "PhysicalPath": "%SystemDrive%\\inetpub\\wwwroot\\PortalApi"
+                }
+            ],
+            "AppToCreateOnBackendWebsite": [
+                {
+                    "Name": "Portal",
+                    "PhysicalPath": "%SystemDrive%\\inetpub\\wwwroot\\Company.Portal.Application.WebService"
+                }
+            ],
+            "HomePageFiles": {
+                "TargetWebApplication": "Portal",
+                "Name": "HomePageFiles",
+                "PhysicalPath": "\\\\10.10.10.10\\gogo\\origin\\bin\\Portal\\HomePageFiles"
+            }
+        },
+        "Track": {
+            "ProjectsToPublish": [
+                {
+                    "RelativeProjectPath": "track\\Company.Track.Web\\Company.Track.Web.csproj",
+                    "RelativePublishProfilePath": "track\\Company.Track.Web\\Properties\\PublishProfiles\\FolderProfile.pubxml"
+                },
+                {
+                    "RelativeProjectPath": "track\\Company.Track.Api\\Company.Track.Api.csproj",
+                    "RelativePublishProfilePath": "track\\Company.Track.Api\\Properties\\PublishProfiles\\FolderProfile.pubxml"
+                },
+                {
+                    "RelativeProjectPath": "track\\Company.Track.WebService\\Company.Track.WebService.csproj",
+                    "RelativePublishProfilePath": "track\\Company.Track.WebService\\Properties\\PublishProfiles\\FolderProfile.pubxml"
+                },
+                {
+                    "RelativeProjectPath": "track\\Company.Track.ConfigurationDomain\\Company.Track.ConfigurationDomain.csproj",
+                    "RelativePublishProfilePath": "track\\Company.Track.ConfigurationDomain\\Properties\\PublishProfiles\\FolderProfile.pubxml"
+                }
+            ],
+            "SymbolicLinkToCreate": [
+                {
+                    "RelativePublishProfilePath": "track\\Company.Track.Web\\Properties\\PublishProfiles\\FolderProfile.pubxml",
+                    "TargetRelativePath": "bin\\Shared",
+                    "SourcePath": "%SystemDrive%\\inetpub\\wwwroot\\Portal\\bin"
+                },
+                {
+                    "RelativePublishProfilePath": "track\\Company.Track.Web\\Properties\\PublishProfiles\\FolderProfile.pubxml",
+                    "TargetRelativePath": "Shared",
+                    "SourcePath": "%SystemDrive%\\inetpub\\wwwroot\\Portal\\Shared"
+                }
+            ],
+            "AppToCreateOnFrontendWebsite": [
+                {
+                    "Name": "Track",
+                    "PhysicalPath": "%SystemDrive%\\inetpub\\wwwroot\\Track"
+                },
+                {
+                    "Name": "TrackApi",
+                    "PhysicalPath": "%SystemDrive%\\inetpub\\wwwroot\\Company.Track.Api"
+                },
+                {
+                    "Name": "ConfigurationDomain",
+                    "PhysicalPath": "%SystemDrive%\\inetpub\\wwwroot\\Company.Track.ConfigurationDomain"
+                }
+            ],
+            "AppToCreateOnBackendWebsite": [
+                {
+                    "Name": "Track",
+                    "PhysicalPath": "%SystemDrive%\\inetpub\\wwwroot\\Company.Track.WebService"
+                }
+            ],
+            "Cache": {
+                "LocalFolderPath": "%SystemDrive%\\inetpub\\wwwroot\\TrackCache",
+                "Name": "TrackCache\\Cache",
+                "PhysicalPath": "\\\\10.10.10.10\\gogo\\originv2\\dev\\track"
+            },
+            "VueJS": {
+                "RelativeSourcePath": "track\\Company.Track.Web\\",
+                "RelativeBuildPath": "track\\Company.Track.Web\\src\\build",
+                "Destination": "%SystemDrive%\\inetpub\\wwwroot\\Track\\src\\"
+            }
+        },
+        "OriginAPI": {
+            "ProjectsToPublish": [
+                {
+                    "RelativeProjectPath": "originapi\\OriginAPI\\OriginAPI.csproj",
+                    "RelativePublishProfilePath": "originapi\\OriginAPI\\Properties\\PublishProfiles\\FolderProfile.pubxml"
+                }
+            ],
+            "SymbolicLinkToCreate": [],
+            "AppToCreateOnFrontendWebsite": [
+                {
+                    "Name": "OriginApi",
+                    "PhysicalPath": "%SystemDrive%\\inetpub\\wwwroot\\OriginApi"
+                }
+            ],
+            "AppToCreateOnBackendWebsite": []
+        },
+        "News": {
+            "ProjectsToPublish": [
+                {
+                    "RelativeProjectPath": "news\\Company.News.Web\\Company.News.Web.csproj",
+                    "RelativePublishProfilePath": "news\\Company.News.Web\\Properties\\PublishProfiles\\FolderProfile.pubxml"
+                },
+                {
+                    "RelativeProjectPath": "news\\Company.News.Application.WebService\\Company.News.Application.WebService.csproj",
+                    "RelativePublishProfilePath": "news\\Company.News.Application.WebService\\Properties\\PublishProfiles\\FolderProfile.pubxml"
+                }
+            ],
+            "SymbolicLinkToCreate": [
+                {
+                    "RelativePublishProfilePath": "news\\Company.News.Web\\Properties\\PublishProfiles\\FolderProfile.pubxml",
+                    "TargetRelativePath": "bin\\Shared",
+                    "SourcePath": "%SystemDrive%\\inetpub\\wwwroot\\Portal\\bin"
+                },
+                {
+                    "RelativePublishProfilePath": "news\\Company.News.Web\\Properties\\PublishProfiles\\FolderProfile.pubxml",
+                    "TargetRelativePath": "Shared",
+                    "SourcePath": "%SystemDrive%\\inetpub\\wwwroot\\Portal\\Shared"
+                },
+                {
+                    "RelativePublishProfilePath": "news\\Company.News.Web\\Properties\\PublishProfiles\\FolderProfile.pubxml",
+                    "TargetRelativePath": "TrackShared",
+                    "SourcePath": "%SystemDrive%\\inetpub\\wwwroot\\Track\\TrackShared"
+                }
+            ],
+            "AppToCreateOnFrontendWebsite": [
+                {
+                    "Name": "News",
+                    "PhysicalPath": "%SystemDrive%\\inetpub\\wwwroot\\News"
+                }
+            ],
+            "AppToCreateOnBackendWebsite": [
+                {
+                    "Name": "NewsWebService",
+                    "PhysicalPath": "%SystemDrive%\\inetpub\\wwwroot\\Company.News.Application.WebService"
+                }
+            ]
+        },
+        "Compose": {
+            "ProjectsToPublish": [
+                {
+                    "RelativeProjectPath": "compose\\Company.Compose.Web\\Company.Compose.Web.csproj",
+                    "RelativePublishProfilePath": "compose\\Company.Compose.Web\\Properties\\PublishProfiles\\FolderProfile.pubxml"
+                }
+            ],
+            "SymbolicLinkToCreate": [
+                {
+                    "RelativePublishProfilePath": "compose\\Company.Compose.Web\\Properties\\PublishProfiles\\FolderProfile.pubxml",
+                    "TargetRelativePath": "bin\\Shared",
+                    "SourcePath": "%SystemDrive%\\inetpub\\wwwroot\\Portal\\bin"
+                },
+                {
+                    "RelativePublishProfilePath": "compose\\Company.Compose.Web\\Properties\\PublishProfiles\\FolderProfile.pubxml",
+                    "TargetRelativePath": "Shared",
+                    "SourcePath": "%SystemDrive%\\inetpub\\wwwroot\\Portal\\Shared"
+                },
+                {
+                    "RelativePublishProfilePath": "compose\\Company.Compose.Web\\Properties\\PublishProfiles\\FolderProfile.pubxml",
+                    "TargetRelativePath": "TrackShared",
+                    "SourcePath": "%SystemDrive%\\inetpub\\wwwroot\\Track\\TrackShared"
+                }
+            ],
+            "AppToCreateOnFrontendWebsite": [
+                {
+                    "Name": "Compose",
+                    "PhysicalPath": "%SystemDrive%\\inetpub\\wwwroot\\Compose"
+                }
+            ],
+            "AppToCreateOnBackendWebsite": []
+        },
+        "Charts": {
+            "ProjectsToPublish": [
+                {
+                    "RelativeProjectPath": "charts\\Company.Charts.Web\\Company.Charts.Web.csproj",
+                    "RelativePublishProfilePath": "charts\\Company.Charts.Web\\Properties\\PublishProfiles\\FolderProfile.pubxml"
+                }
+            ],
+            "SymbolicLinkToCreate": [
+                {
+                    "RelativePublishProfilePath": "charts\\Company.Charts.Web\\Properties\\PublishProfiles\\FolderProfile.pubxml",
+                    "TargetRelativePath": "bin\\Shared",
+                    "SourcePath": "%SystemDrive%\\inetpub\\wwwroot\\Portal\\bin"
+                },
+                {
+                    "RelativePublishProfilePath": "charts\\Company.Charts.Web\\Properties\\PublishProfiles\\FolderProfile.pubxml",
+                    "TargetRelativePath": "Shared",
+                    "SourcePath": "%SystemDrive%\\inetpub\\wwwroot\\Portal\\Shared"
+                },
+                {
+                    "RelativePublishProfilePath": "charts\\Company.Charts.Web\\Properties\\PublishProfiles\\FolderProfile.pubxml",
+                    "TargetRelativePath": "TrackShared",
+                    "SourcePath": "%SystemDrive%\\inetpub\\wwwroot\\Track\\TrackShared"
+                }
+            ],
+            "AppToCreateOnFrontendWebsite": [
+                {
+                    "Name": "Charts",
+                    "PhysicalPath": "%SystemDrive%\\inetpub\\wwwroot\\Charts"
+                }
+            ],
+            "AppToCreateOnBackendWebsite": [],
+            "VueJS": {
+                "RelativeSourcePath": "charts\\Company.Charts.Web\\",
+                "RelativeBuildPath": "charts\\Company.Charts.Web\\src\\build",
+                "Destination": "%SystemDrive%\\inetpub\\wwwroot\\Charts\\src\\"
+            }
+        },
+        "Order": {
+            "ProjectsToPublish": [
+                {
+                    "RelativeProjectPath": "order\\Company.Order.Web\\Company.Order.Web.csproj",
+                    "RelativePublishProfilePath": "order\\Company.Order.Web\\Properties\\PublishProfiles\\FolderProfile.pubxml"
+                },
+                {
+                    "RelativeProjectPath": "order\\Company.Order.Web2\\Company.Order.Web2.csproj",
+                    "RelativePublishProfilePath": "order\\Company.Order.Web2\\Properties\\PublishProfiles\\FolderProfile.pubxml"
+                },
+                {
+                    "RelativeProjectPath": "order\\Company.Order.Api\\Company.Order.Api.csproj",
+                    "RelativePublishProfilePath": "order\\Company.Order.Api\\Properties\\PublishProfiles\\FolderProfile.pubxml"
+                }
+            ],
+            "SymbolicLinkToCreate": [
+                {
+                    "RelativePublishProfilePath": "order\\Company.Order.Web\\Properties\\PublishProfiles\\FolderProfile.pubxml",
+                    "TargetRelativePath": "bin\\Shared",
+                    "SourcePath": "%SystemDrive%\\inetpub\\wwwroot\\Portal\\bin"
+                },
+                {
+                    "RelativePublishProfilePath": "order\\Company.Order.Web\\Properties\\PublishProfiles\\FolderProfile.pubxml",
+                    "TargetRelativePath": "Shared",
+                    "SourcePath": "%SystemDrive%\\inetpub\\wwwroot\\Portal\\Shared"
+                },
+                {
+                    "RelativePublishProfilePath": "order\\Company.Order.Web2\\Properties\\PublishProfiles\\FolderProfile.pubxml",
+                    "TargetRelativePath": "bin\\Shared",
+                    "SourcePath": "%SystemDrive%\\inetpub\\wwwroot\\Portal\\bin"
+                },
+                {
+                    "RelativePublishProfilePath": "order\\Company.Order.Web2\\Properties\\PublishProfiles\\FolderProfile.pubxml",
+                    "TargetRelativePath": "Shared",
+                    "SourcePath": "%SystemDrive%\\inetpub\\wwwroot\\Portal\\Shared"
+                }
+            ],
+            "AppToCreateOnFrontendWebsite": [
+                {
+                    "Name": "Order",
+                    "PhysicalPath": "%SystemDrive%\\inetpub\\wwwroot\\Order"
+                },
+                {
+                    "Name": "Order2",
+                    "PhysicalPath": "%SystemDrive%\\inetpub\\wwwroot\\Order2"
+                },
+                {
+                    "Name": "OrderApi",
+                    "PhysicalPath": "%SystemDrive%\\inetpub\\wwwroot\\OrderApi"
+                }
+            ],
+            "AppToCreateOnBackendWebsite": [],
+            "MediaFormatImages": {
+                "LocalFolderPath": "%SystemDrive%\\inetpub\\wwwroot\\Order\\MediaFormatImages",
+                "Name": "MediaFormatImages",
+                "PhysicalPath": "\\\\10.10.10.10\\gogo\\originv2\\dev\\Order\\MediaFormatImages"
+            }
+        },
+        "Typefaces": {
+            "ProjectsToPublish": [
+                {
+                    "RelativeProjectPath": "typefaces\\Company.Typefaces.Web\\Company.Typefaces.Web.csproj",
+                    "RelativePublishProfilePath": "typefaces\\Company.Typefaces.Web\\Properties\\PublishProfiles\\FolderProfile.pubxml"
+                }
+            ],
+            "SymbolicLinkToCreate": [
+                {
+                    "RelativePublishProfilePath": "typefaces\\Company.Typefaces.Web\\Properties\\PublishProfiles\\FolderProfile.pubxml",
+                    "TargetRelativePath": "bin\\Shared",
+                    "SourcePath": "%SystemDrive%\\inetpub\\wwwroot\\Portal\\bin"
+                },
+                {
+                    "RelativePublishProfilePath": "typefaces\\Company.Typefaces.Web\\Properties\\PublishProfiles\\FolderProfile.pubxml",
+                    "TargetRelativePath": "Shared",
+                    "SourcePath": "%SystemDrive%\\inetpub\\wwwroot\\Portal\\Shared"
+                }
+            ],
+            "AppToCreateOnFrontendWebsite": [
+                {
+                    "Name": "Typefaces",
+                    "PhysicalPath": "%SystemDrive%\\inetpub\\wwwroot\\Typefaces"
+                }
+            ],
+            "AppToCreateOnBackendWebsite": []
+        },
+        "Transport": {
+            "ProjectsToPublish": [
+                {
+                    "RelativeProjectPath": "transport\\Company.Transport.Web\\Company.Transport.Web.csproj",
+                    "RelativePublishProfilePath": "transport\\Company.Transport.Web\\Properties\\PublishProfiles\\FolderProfile.pubxml"
+                }
+            ],
+            "SymbolicLinkToCreate": [
+                {
+                    "RelativePublishProfilePath": "transport\\Company.Transport.Web\\Properties\\PublishProfiles\\FolderProfile.pubxml",
+                    "TargetRelativePath": "bin\\Shared",
+                    "SourcePath": "%SystemDrive%\\inetpub\\wwwroot\\Portal\\bin"
+                },
+                {
+                    "RelativePublishProfilePath": "transport\\Company.Transport.Web\\Properties\\PublishProfiles\\FolderProfile.pubxml",
+                    "TargetRelativePath": "Shared",
+                    "SourcePath": "%SystemDrive%\\inetpub\\wwwroot\\Portal\\Shared"
+                }
+            ],
+            "AppToCreateOnFrontendWebsite": [
+                {
+                    "Name": "Transport",
+                    "PhysicalPath": "%SystemDrive%\\inetpub\\wwwroot\\Transport"
+                }
+            ],
+            "AppToCreateOnBackendWebsite": []
+        },
+        "PreviewBox": {
+            "ProjectsToPublish": [
+                {
+                    "RelativeProjectPath": "previewbox\\src\\Company.PreviewBox.Web\\Company.PreviewBox.Web.csproj",
+                    "RelativePublishProfilePath": "previewbox\\src\\Company.PreviewBox.Web\\Properties\\PublishProfiles\\FolderProfile.pubxml"
+                },
+                {
+                    "RelativeProjectPath": "previewbox\\src\\Company.PreviewBox.WebService\\Company.PreviewBox.WebService.csproj",
+                    "RelativePublishProfilePath": "previewbox\\src\\Company.PreviewBox.WebService\\Properties\\PublishProfiles\\FolderProfile.pubxml"
+                }
+            ],
+            "SymbolicLinkToCreate": [
+                {
+                    "RelativePublishProfilePath": "previewbox\\src\\Company.PreviewBox.Web\\Properties\\PublishProfiles\\FolderProfile.pubxml",
+                    "TargetRelativePath": "bin\\Shared",
+                    "SourcePath": "%SystemDrive%\\inetpub\\wwwroot\\Portal\\bin"
+                },
+                {
+                    "RelativePublishProfilePath": "previewbox\\src\\Company.PreviewBox.Web\\Properties\\PublishProfiles\\FolderProfile.pubxml",
+                    "TargetRelativePath": "Shared",
+                    "SourcePath": "%SystemDrive%\\inetpub\\wwwroot\\Portal\\Shared"
+                }
+            ],
+            "AppToCreateOnFrontendWebsite": [
+                {
+                    "Name": "PreviewBox",
+                    "PhysicalPath": "%SystemDrive%\\inetpub\\wwwroot\\PreviewBox"
+                }
+            ],
+            "AppToCreateOnBackendWebsite": [
+                {
+                    "Name": "PreviewBox",
+                    "PhysicalPath": "%SystemDrive%\\inetpub\\wwwroot\\Company.Previewbox.WebService"
+                }
+            ]
+        },
+        "RenderBox": {
+            "ProjectsToPublish": [
+                {
+                    "RelativeProjectPath": "renderbox\\Company.RenderBox.Web\\Company.RenderBox.Web.csproj",
+                    "RelativePublishProfilePath": "renderbox\\Company.RenderBox.Web\\Properties\\PublishProfiles\\FolderProfile.pubxml"
+                },
+                {
+                    "RelativeProjectPath": "renderbox\\Company.RenderBox.Application.WebService\\Company.RenderBox.Application.WebService.csproj",
+                    "RelativePublishProfilePath": "renderbox\\Company.RenderBox.Application.WebService\\Properties\\PublishProfiles\\FolderProfile.pubxml"
+                }
+            ],
+            "SymbolicLinkToCreate": [
+                {
+                    "RelativePublishProfilePath": "renderbox\\Company.RenderBox.Web\\Properties\\PublishProfiles\\FolderProfile.pubxml",
+                    "TargetRelativePath": "bin\\Shared",
+                    "SourcePath": "%SystemDrive%\\inetpub\\wwwroot\\Portal\\bin"
+                },
+                {
+                    "RelativePublishProfilePath": "renderbox\\Company.RenderBox.Web\\Properties\\PublishProfiles\\FolderProfile.pubxml",
+                    "TargetRelativePath": "Shared",
+                    "SourcePath": "%SystemDrive%\\inetpub\\wwwroot\\Portal\\Shared"
+                }
+            ],
+            "AppToCreateOnFrontendWebsite": [
+                {
+                    "Name": "RenderBox",
+                    "PhysicalPath": "%SystemDrive%\\inetpub\\wwwroot\\RenderBox"
+                }
+            ],
+            "AppToCreateOnBackendWebsite": [
+                {
+                    "Name": "RenderBox",
+                    "PhysicalPath": "%SystemDrive%\\inetpub\\wwwroot\\Company.Renderbox.Application.WebService"
+                }
+            ]
+        },
+        "Quotes": {
+            "ProjectsToPublish": [
+                {
+                    "RelativeProjectPath": "quotes\\Company.Quotes.Web\\Company.Quotes.Web.csproj",
+                    "RelativePublishProfilePath": "quotes\\Company.Quotes.Web\\Properties\\PublishProfiles\\FolderProfile.pubxml"
+                }
+            ],
+            "SymbolicLinkToCreate": [
+                {
+                    "RelativePublishProfilePath": "quotes\\Company.Quotes.Web\\Properties\\PublishProfiles\\FolderProfile.pubxml",
+                    "TargetRelativePath": "bin\\Shared",
+                    "SourcePath": "%SystemDrive%\\inetpub\\wwwroot\\Portal\\bin"
+                },
+                {
+                    "RelativePublishProfilePath": "quotes\\Company.Quotes.Web\\Properties\\PublishProfiles\\FolderProfile.pubxml",
+                    "TargetRelativePath": "Shared",
+                    "SourcePath": "%SystemDrive%\\inetpub\\wwwroot\\Portal\\Shared"
+                }
+            ],
+            "AppToCreateOnFrontendWebsite": [
+                {
+                    "Name": "Quotes",
+                    "PhysicalPath": "%SystemDrive%\\inetpub\\wwwroot\\Quotes"
+                }
+            ],
+            "AppToCreateOnBackendWebsite": []
+        },
+        "Maps": {
+            "ProjectsToPublish": [
+                {
+                    "RelativeProjectPath": "maps\\Company.Maps.Web\\Company.Maps.Web.csproj",
+                    "RelativePublishProfilePath": "maps\\Company.Maps.Web\\Properties\\PublishProfiles\\FolderProfile.pubxml"
+                },
+                {
+                    "RelativeProjectPath": "maps\\Company.Maps.Admin.Web\\Company.Maps.Admin.Web.csproj",
+                    "RelativePublishProfilePath": "maps\\Company.Maps.Admin.Web\\Properties\\PublishProfiles\\FolderProfile.pubxml"
+                }
+            ],
+            "SymbolicLinkToCreate": [
+                {
+                    "RelativePublishProfilePath": "maps\\Company.Maps.Web\\Properties\\PublishProfiles\\FolderProfile.pubxml",
+                    "TargetRelativePath": "bin\\Shared",
+                    "SourcePath": "%SystemDrive%\\inetpub\\wwwroot\\Portal\\bin"
+                },
+                {
+                    "RelativePublishProfilePath": "maps\\Company.Maps.Web\\Properties\\PublishProfiles\\FolderProfile.pubxml",
+                    "TargetRelativePath": "Shared",
+                    "SourcePath": "%SystemDrive%\\inetpub\\wwwroot\\Portal\\Shared"
+                },
+                {
+                    "RelativePublishProfilePath": "maps\\Company.Maps.Web\\Properties\\PublishProfiles\\FolderProfile.pubxml",
+                    "TargetRelativePath": "TrackShared",
+                    "SourcePath": "%SystemDrive%\\inetpub\\wwwroot\\Track\\TrackShared"
+                }
+            ],
+            "AppToCreateOnFrontendWebsite": [
+                {
+                    "Name": "Maps",
+                    "PhysicalPath": "%SystemDrive%\\inetpub\\wwwroot\\Maps"
+                },
+                {
+                    "Name": "MapsAdmin",
+                    "PhysicalPath": "%SystemDrive%\\inetpub\\wwwroot\\MapsAdmin"
+                }
+            ],
+            "AppToCreateOnBackendWebsite": [],
+            "CMDTools": [
+                {
+                    "Source": "\\\\10.10.10.10\\deploy\\_maps\\setup",
+                    "Destination": "%SystemDrive%\\_maps\\"
+                },
+                {
+                    "Source": "\\\\10.10.10.10\\deploy\\_maps\\utils",
+                    "Destination": "%SystemDrive%\\_maps\\"
+                }
+            ],
+            "URLRewriteRule": {
+                "TargetWebApp": "Maps",
+                "RuleName": "Maps Renderbox Redirect"
+            },
+            "LocalDirectory": [
+                {
+                    "Path": "%SystemDrive%\\Company.Maps.Runtime\\"
+                }
+            ],
+            "NetworkSymbolicLinks": [
+                {
+                    "TargetPath": "%SystemDrive%\\Company.Maps.Runtime\\EarthCache",
+                    "SourcePath": "\\\\10.10.10.10\\deploy\\Company.Maps.Runtime_Archive\\data\\2016-11-07\\EarthCache"
+                },
+                {
+                    "TargetPath": "%SystemDrive%\\Company.Maps.Runtime\\TileServer",
+                    "SourcePath": "\\\\10.10.10.10\\deploy\\Company.Maps.Runtime_Archive\\data\\2016-11-07\\\\TileServer"
+                }
+            ],
+            "Static": {
+                "TargetRelativePath": "%SystemDrive%\\Company.Maps.Runtime\\Static",
+                "SourcePath": "maps\\Company.Maps.Static"
+            },
+            "MapsConsole": {
+                "RelativePathToSolution": "maps\\Maps.sln",
+                "BuildPath": "maps\\MapsConsole\\bin\\Release-Dev\\MapsConsole.exe"
+            }
+        }
+    }
+}
